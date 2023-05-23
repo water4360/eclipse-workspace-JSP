@@ -1,25 +1,25 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>[1]ทฮฑืภฮ ศฤ ภฬฟ๋วุมึผผฟไ</title>
+<title>[1]๋ก๊ทธ์ธ ํ ์ด์ฉํ•ด์ฃผ์ธ์”</title>
 </head>
 <body>
 	<%
-	//ทฮฑืภฮป๓ลย ธีภ๚ ศฎภฮ
+	//๋ก๊ทธ์ธ์ํ ๋จผ์ € ํ•์ธ
 	boolean isLoggedIn = (session.getAttribute("id") != null);
 
 	if (isLoggedIn) {
 		response.sendRedirect("main.jsp");
 	}
 	%>
-	<h2>ศธฟ๘ ทฮฑืภฮ</h2>
+	<h2>ํ์ ๋ก๊ทธ์ธ</h2>
 	<form method="post" action="./loginProcess.jsp">
-		<input type="text" name="id" placeholder="IDธฆ ภิทยวฯผผฟไ" required><br>
-		<input type="password" name="pw" placeholder="PWธฆ ภิทยวฯผผฟไ" required><br>
-		<br> <input type="submit" value="ทฮฑืภฮ">
+		<input type="text" name="id" placeholder="ID๋ฅผ ์…๋ ฅํ•์ธ์”" required><br>
+		<input type="password" name="pw" placeholder="PW๋ฅผ ์…๋ ฅํ•์ธ์”" required><br>
+		<br> <input type="submit" value="๋ก๊ทธ์ธ">
 	</form>
 
 </body>

@@ -1,16 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>[2]·Î±×ÀÎÈ¸¿ø Àü¿ë ¸ÞÀÎÆäÀÌÁö</title>
+<title>[2]ë¡œê·¸ì¸íšŒì› ì „ìš© ë©”ì¸íŽ˜ì´ì§€</title>
 </head>
 <body>
 	<h2>Welcome to main page</h2>
-	<h3>¾È³çÇÏ¼¼¿ä, <%= session.getAttribute("id")%>´Ô!</h3>
+	<h3>ì•ˆë…•í•˜ì„¸ìš”, <%= session.getAttribute("id")%>ë‹˜!</h3>
 	<form method="post" action="logout.jsp">
-		º¸¾ÈÀ» À§ÇØ <input type="submit" name="logout" value="·Î±×¾Æ¿ô">ÇØÁÖ¼¼¿ä.
+		ë³´ì•ˆì„ ìœ„í•´ <input type="submit" name="logout" value="ë¡œê·¸ì•„ì›ƒ">í•´ì£¼ì„¸ìš”.
 	</form>
 </body>
 </html>
