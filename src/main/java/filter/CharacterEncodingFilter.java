@@ -1,4 +1,4 @@
-package ex6;
+package filter;
 
 import java.io.IOException;
 import javax.servlet.Filter;
@@ -39,7 +39,6 @@ public class CharacterEncodingFilter implements Filter {
 		
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
-		
 		
 		// pass the request along the filter chain
 		chain.doFilter(request, response);

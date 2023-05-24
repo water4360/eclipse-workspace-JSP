@@ -42,6 +42,7 @@ public class CalculatorServlet extends HttpServlet {
 			for (Cookie cookie : cookies) {
 				if (!cookie.getName().equals("count")) {
 					String decodedValue = URLDecoder.decode(cookie.getValue(), "UTF-8");
+					
 					out.println("<h3>" + decodedValue + "</h3>");
 //					out.println("num1 : "+cookie.getName() + " num2 :" + cookie.getValue()+"<br>");
 				}
@@ -50,14 +51,14 @@ public class CalculatorServlet extends HttpServlet {
 		
 		
 		out.println("<form method='post' action='CalculatorServlet'>");
-		out.println("<input type='text' name='num1' placeholder='num1' required />");
+		out.println("<input type='number' name='num1' placeholder='num1' required />");
 		out.println("<select name='operator'>");
 		out.println("<option value='+'>+</option>");
 		out.println("<option value='-'>-</option>");
 		out.println("<option value='*'>*</option>");
 		out.println("<option value='/'>/</option>");
 		out.println("</select>");
-		out.println("<input type='text' name='num2' placeholder='num2' required />");
+		out.println("<input type='number' name='num2' placeholder='num2' required />");
 		out.println("<input type='submit' value='계산하기'/>"); // 제출용 버튼
 		out.println("</form>");
 
@@ -69,15 +70,14 @@ public class CalculatorServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		int num1 = Integer.parseInt(request.getParameter("num1"));
 		int num2 = Integer.parseInt(request.getParameter("num2"));
 		String operator = request.getParameter("operator");
 
 		double result = 0;
-
-		response.getWriter().println("<h1>결과: " + result + "</h1>");
-
+		
+//		response.getWriter().printf("<h1>결과: %f</h1>", result);
+		
 		switch (operator) {
 		case "+":
 			result = num1 + num2;
@@ -93,6 +93,18 @@ public class CalculatorServlet extends HttpServlet {
 			break;
 		}
 		
+//		if (result - (int)result == 0) {
+//		    response.getWriter().printf("<h1>결과: %d</h1>", (int)result);
+//		    System.out.println("처리전 : " + result);
+//		    result = (int)result;
+//		    System.out.println("처리후 : " + result);
+//		    System.out.println("int 씌움 : " + (int)result);
+//		    
+//		} else {
+//		    response.getWriter().printf("<h1>결과: %.3f</h1>", result);
+//		}
+
+		
 		int cnt = 0;
 		
 		Cookie[] cookies = request.getCookies();
@@ -103,7 +115,9 @@ public class CalculatorServlet extends HttpServlet {
 			}
 		}
 		
+		//쿠키에 출력되는 값.
 		String value = num1 + " " + operator + " " + num2 + " = " + result;
+		System.out.println("if 거친 value : " + value);
 		String encodedValue = URLEncoder.encode(value, "UTF-8");
 		Cookie cookie = new Cookie(cnt++ + "", encodedValue);
 		Cookie cntCookie = new Cookie("count", cnt + "");
