@@ -65,24 +65,6 @@ public class LoginServlet extends HttpServlet {
 			response.sendRedirect(request.getContextPath() + "/0523-practice-split/error2.jsp");
 			break;
 		}
-		
-		//유효한 아이디라면.
-//		if(isValid) {
-//			//세션 생성
-//			HttpSession session = request.getSession();
-//			
-//			//사용자 아이디 저장
-//			session.setAttribute("id", id);
-//			response.sendRedirect(request.getContextPath() + "/0523-practice-split/main.jsp");
-//			
-//		} else {
-//			//유효하지 않은 아이디는 error로 안내.
-//			
-//			out.println("<script>alert('비밀번호가 일치하지 않습니다.')</script>");
-////			response.sendRedirect(request.getContextPath() + "/0523-practice-split/fail.jsp");
-//
-//		}
-		
 	}
 	
 	private int isValidUserInfo(String userId, String userPw) throws IOException {
